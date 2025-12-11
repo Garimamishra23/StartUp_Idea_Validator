@@ -509,13 +509,19 @@ startup_ideas = [
     "EdTech platform using gamification to teach advanced coding concepts."
 ]
 preprocessed_ideas = None
+embeddings = None
 
 def get_preprocessed_ideas():
     global preprocessed_ideas
     if preprocessed_ideas is None:
         preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
     return preprocessed_ideas
-
+def get_embeddings():
+    global embeddings
+    ideas = get_preprocessed_ideas()
+    if embeddings is None:
+        embeddings = model_st.encode(ideas, convert_to_numpy=True)
+    return embeddings
 
 #preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
 embeddings = model_st.encode(preprocessed_ideas, convert_to_numpy=True)
