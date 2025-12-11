@@ -1,4 +1,12 @@
 # app/chatbot.py 
+st.markdown("""
+<style>
+* {
+    color: #111 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 import nltk
 import os
 try:
