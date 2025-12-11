@@ -3,6 +3,7 @@ sentence-transformers
 faiss-cpu
 scikit-learn
 pandas
+reportlab
 numpy
 pytrends
 python-dotenv
