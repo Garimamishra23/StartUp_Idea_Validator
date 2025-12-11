@@ -18,7 +18,7 @@ import os
 import base64
 # --- 1. Import all necessary functions and variables from utils.py ---
 from utils import (
-    preprocess_text, get_embeddings, find_similar_ideas, 
+    get_preprocessed_ideas, get_embeddings, find_similar_ideas, 
     extract_keywords, get_trend_data, get_ollama_feedback, 
     generate_pdf_report, get_ml_scores, OLLAMA_MODEL
 )
