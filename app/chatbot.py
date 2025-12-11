@@ -22,10 +22,12 @@ from utils import (
     extract_keywords, get_trend_data, get_ollama_feedback, 
     generate_pdf_report, get_ml_scores, OLLAMA_MODEL
 )
+ideas = get_preprocessed_ideas()
 
 # Import the new web-based competitor extractor
 from real_competitor_extractor import competitor_extractor
 from typing import List, Dict, Optional
+
 
 # --- ENHANCED SERPAPI COMPETITOR SEARCH ---
 def search_competitors_serpapi(idea, api_key="d5c183cb496ff99958e5be3762b3088243bb7868f058c5dc69bdc8ce4c81c8f9"):
