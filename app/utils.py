@@ -1,6 +1,5 @@
 # app/utils.py - UPDATED FOR PURE ML-BASED SCORING
 import nltk
-
 # Download only if missing (safe for Streamlit Cloud)
 try:
     nltk.data.find("tokenizers/punkt")
@@ -11,6 +10,26 @@ try:
     nltk.data.find("tokenizers/punkt_tab")
 except LookupError:
     nltk.download("punkt_tab")
+
+# ---- ADD THIS FIX BELOW ----
+
+try:
+    nltk.data.find("corpora/stopwords")
+except LookupError:
+    nltk.download("stopwords")
+
+try:
+    nltk.data.find("corpora/wordnet")
+except LookupError:
+    nltk.download("wordnet")
+
+try:
+    nltk.data.find("taggers/averaged_perceptron_tagger")
+except LookupError:
+    nltk.download("averaged_perceptron_tagger")
+
+
+
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
