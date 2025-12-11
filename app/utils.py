@@ -499,14 +499,6 @@ def extract_keywords(text):
 
 # --- EMBEDDINGS AND FAISS SEARCH SETUP ---
 model_st = SentenceTransformer('all-MiniLM-L6-v2') 
-preprocessed_ideas = None
-
-def get_preprocessed_ideas():
-    global preprocessed_ideas
-    if preprocessed_ideas is None:
-        preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
-    return preprocessed_ideas
-
 startup_ideas = [
     "A fitness app that creates personalized workout plans with AI.",
     "Food delivery app that uses drones for quick service in urban areas.",
@@ -516,6 +508,15 @@ startup_ideas = [
     "Chatbot for mental health check-ins using daily mood analysis.",
     "EdTech platform using gamification to teach advanced coding concepts."
 ]
+preprocessed_ideas = None
+
+def get_preprocessed_ideas():
+    global preprocessed_ideas
+    if preprocessed_ideas is None:
+        preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
+    return preprocessed_ideas
+
+
 #preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
 embeddings = model_st.encode(preprocessed_ideas, convert_to_numpy=True)
 dimension = embeddings.shape[1]
