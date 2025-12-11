@@ -1,4 +1,29 @@
 # app/chatbot.py 
+# Fix invisible text issue
+st.markdown("""
+    <style>
+        /* Make all text dark */
+        body, p, span, div, h1, h2, h3, h4, h5, h6 {
+            color: #111 !important;
+        }
+
+        /* Fix text inside expander */
+        .streamlit-expanderHeader {
+            color: #111 !important;
+        }
+
+        /* Fix text inside containers */
+        .stMarkdown {
+            color: #111 !important;
+        }
+
+        /* Optional: make background slightly darker */
+        .main {
+            background-color: #f5f5f5 !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 import nltk
 import os
 try:
