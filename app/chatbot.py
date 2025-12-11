@@ -1,4 +1,12 @@
 # app/chatbot.py 
+import nltk
+try:
+    # Check if the 'punkt' data is already available
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    # If not found, download it. This is necessary for sent_tokenize/word_tokenize.
+    nltk.download('punkt')
+    print("NLTK 'punkt' resource successfully downloaded for deployment.")
 import streamlit as st
 import pandas as pd
 import ollama
@@ -7,14 +15,6 @@ import time
 import pyttsx3 
 import os
 import base64
-import nltk
-try:
-    # Check for the resource, if not found, it raises LookupError
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    print("Downloading NLTK 'punkt' resource...")
-    nltk.download('punkt')
-    print("NLTK 'punkt' downloaded successfully.")
 # --- 1. Import all necessary functions and variables from utils.py ---
 from utils import (
     preprocess_text, get_embeddings, find_similar_ideas, 
