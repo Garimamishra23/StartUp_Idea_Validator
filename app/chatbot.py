@@ -1,4 +1,5 @@
 # app/chatbot.py 
+import streamlit as st
 st.markdown("""
 <style>
 * {
@@ -16,7 +17,7 @@ except LookupError:
     # If not found, download it. This is necessary for sent_tokenize/word_tokenize.
     nltk.download('punkt')
     print("NLTK 'punkt' resource successfully downloaded for deployment.")
-import streamlit as st
+
 import pandas as pd
 import ollama
 import requests 
