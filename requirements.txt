@@ -1,0 +1,16 @@
+streamlit
+sentence-transformers
+faiss-cpu
+scikit-learn
+pandas
+numpy
+pytrends
+python-dotenv
+requests
+matplotlib
+transformers
+torch
+ollama
+pyttsx3
+nltk
+python-dotenv
