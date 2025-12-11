@@ -1,13 +1,16 @@
 # app/utils.py - UPDATED FOR PURE ML-BASED SCORING
 import nltk
-# Check and download NLTK data right when utils.py is loaded.
-# This must be the first code executed in this file.
+
+# Download only if missing (safe for Streamlit Cloud)
 try:
-    # We need 'punkt' for sent_tokenize/word_tokenize
-    nltk.data.find('tokenizers/punkt')
+    nltk.data.find("tokenizers/punkt")
 except LookupError:
-    print("NLTK 'punkt' resource not found. Downloading...")
-    nltk.download('punkt')
+    nltk.download("punkt")
+
+try:
+    nltk.data.find("tokenizers/punkt_tab")
+except LookupError:
+    nltk.download("punkt_tab")
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
@@ -496,6 +499,13 @@ def extract_keywords(text):
 
 # --- EMBEDDINGS AND FAISS SEARCH SETUP ---
 model_st = SentenceTransformer('all-MiniLM-L6-v2') 
+preprocessed_ideas = None
+
+def get_preprocessed_ideas():
+    global preprocessed_ideas
+    if preprocessed_ideas is None:
+        preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
+    return preprocessed_ideas
 
 startup_ideas = [
     "A fitness app that creates personalized workout plans with AI.",
@@ -506,7 +516,7 @@ startup_ideas = [
     "Chatbot for mental health check-ins using daily mood analysis.",
     "EdTech platform using gamification to teach advanced coding concepts."
 ]
-preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
+#preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
 embeddings = model_st.encode(preprocessed_ideas, convert_to_numpy=True)
 dimension = embeddings.shape[1]
 index = faiss.IndexFlatL2(dimension)
