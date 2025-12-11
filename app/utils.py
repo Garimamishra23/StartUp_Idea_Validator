@@ -524,8 +524,7 @@ def get_embeddings():
         dimension = embeddings.shape[1]
         index = faiss.IndexFlatL2(dimension)
         index.add(embeddings)
-
-return embeddings
+        return embeddings
 
 #preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
 #embeddings = model_st.encode(preprocessed_ideas, convert_to_numpy=True)
