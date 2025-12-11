@@ -521,13 +521,17 @@ def get_embeddings():
     ideas = get_preprocessed_ideas()
     if embeddings is None:
         embeddings = model_st.encode(ideas, convert_to_numpy=True)
-    return embeddings
+        dimension = embeddings.shape[1]
+        index = faiss.IndexFlatL2(dimension)
+        index.add(embeddings)
+
+return embeddings
 
 #preprocessed_ideas = [preprocess_text(idea) for idea in startup_ideas]
-embeddings = model_st.encode(preprocessed_ideas, convert_to_numpy=True)
-dimension = embeddings.shape[1]
-index = faiss.IndexFlatL2(dimension)
-index.add(embeddings)
+#embeddings = model_st.encode(preprocessed_ideas, convert_to_numpy=True)
+#dimension = embeddings.shape[1]
+#index = faiss.IndexFlatL2(dimension)
+#index.add(embeddings)
 
 def get_embeddings(texts):
     """ Generates semantic embeddings for a list of texts. """
