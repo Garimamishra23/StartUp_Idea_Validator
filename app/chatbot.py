@@ -1,5 +1,6 @@
 # app/chatbot.py 
 import nltk
+import os
 try:
     # Check if the 'punkt' data is already available
     nltk.data.find('tokenizers/punkt')
