@@ -1,4 +1,13 @@
 # app/utils.py - UPDATED FOR PURE ML-BASED SCORING
+import nltk
+# Check and download NLTK data right when utils.py is loaded.
+# This must be the first code executed in this file.
+try:
+    # We need 'punkt' for sent_tokenize/word_tokenize
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    print("NLTK 'punkt' resource not found. Downloading...")
+    nltk.download('punkt')
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
