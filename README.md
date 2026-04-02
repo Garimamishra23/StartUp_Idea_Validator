@@ -16,7 +16,7 @@ Help aspiring founders validate their startup ideas by:
 - Generating expert-level narrative analysis using a local LLM (TinyLlama via Ollama)
 - Producing a downloadable professional PDF validation report
 
-> "Democratizing access to expert-level validation capabilities that apply state-of-the-art artificial intelligence to de-risk ventures from day one." — Project Abstract
+
 
 ---
 
@@ -184,7 +184,7 @@ PDF Report:         startup_validation_1718293847.pdf  ✅
 
 ## 🖼️ Screenshots & Dashboard
 
-> **To contributors:** Capture the following screenshots from your running app and add them to `assets/screenshots/`. Then uncomment the lines below.
+
 
 ```markdown
 <!-- 1. Homepage / initial chat screen with logo and bot greeting -->
