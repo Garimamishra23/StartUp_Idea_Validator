@@ -1,6 +1,6 @@
 # Smart Idea Validator Pro 💡🚀
 
-> *A project report submitted in partial fulfillment for the award of the degree of Bachelor of Technology in Computer Science and Engineering — Vellore Institute of Technology, Chennai (2025)*
+
 
 An AI-powered startup idea validation chatbot that gives entrepreneurs real-time market intelligence, ML-based scoring, live competitor discovery via web search, and downloadable PDF reports — all through a conversational Streamlit interface. Reduces traditional validation from **weeks to under 30 seconds**.
 
